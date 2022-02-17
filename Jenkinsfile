@@ -24,6 +24,7 @@ podTemplate(yaml: '''
                     sh 'npm test'
                 }
             }
+  }
 }
     
 
