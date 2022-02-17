@@ -14,7 +14,7 @@ podTemplate(yaml: '''
       container('npm'){
           stage('build') {
                     sh 'node --version'
-                    sh 'npm install
+                    sh 'npm install'
           }
          stage('test') {
       
