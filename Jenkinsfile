@@ -12,7 +12,7 @@ podTemplate(yaml: '''
 ''') {
   node(POD_LABEL) {
       container('npm'){
-          state('git'){
+          stage('git'){
             git url 'https://github.com/thaisatamar/nodeapp.git'
           }
           stage('build') {
