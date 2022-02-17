@@ -11,19 +11,18 @@ podTemplate(yaml: '''
         - 99d
 ''') {
   node(POD_LABEL) {
-            stage('build') {
-              container('npm'){
-                steps {
+      container('npm'){
+          stage('build') {
                     sh 'node --version'
-                    sh 'npm install'
-                }
-              }
-            }
-            stage('test') {
-                steps {
+                    sh 'npm install
+          }
+         stage('test') {
+      
                     sh 'npm test'
-                }
-            }
+         }
+            
+      }
+          
   }
 }
     
