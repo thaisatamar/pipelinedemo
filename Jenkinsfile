@@ -19,10 +19,12 @@ pipeline {
   }
   stages{
             stage('build') {
+              container('npm'){
                 steps {
                     sh 'node --version'
                     sh 'npm install'
                 }
+              }
             }
             stage('test') {
                 steps {
