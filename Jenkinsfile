@@ -9,13 +9,8 @@ pipeline {
             some-label: some-label-value
         spec:
           containers:
-          - name: maven
+          - name: npm
             image: node:alpine
-            command:
-            - cat
-            tty: true
-          - name: busybox
-            image: busybox
             command:
             - cat
             tty: true
