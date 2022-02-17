@@ -1,23 +1,16 @@
-pipeline {
-  agent {
-    kubernetes {
-      yaml '''
-        apiVersion: v1
-        kind: Pod
-        metadata:
-          labels:
-            some-label: some-label-value
-        spec:
-          containers:
-          - name: npm
-            image: node:16.3.0-alpine
-            command:
-            - cat
-            tty: true
-        '''
-    }
-  }
-  stages{
+podTemplate(yaml: '''
+    apiVersion: v1
+    kind: Pod
+    spec:
+      containers:
+      - name: npm
+        image: node:alpine
+        command:
+        - sleep
+        args:
+        - 99d
+''') {
+  node(POD_LABEL) {
             stage('build') {
               container('npm'){
                 steps {
@@ -31,7 +24,6 @@ pipeline {
                     sh 'npm test'
                 }
             }
-        }
 }
     
 
