@@ -13,7 +13,7 @@ podTemplate(yaml: '''
   node(POD_LABEL) {
       container('npm'){
           stage('git'){
-            git url 'https://github.com/thaisatamar/nodeapp.git'
+            git clone 'https://github.com/thaisatamar/nodeapp.git'
           }
           stage('build') {
                     sh 'node --version'
